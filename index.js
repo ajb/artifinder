@@ -28,8 +28,6 @@ app.get('*', function (req, res) {
     splitUrl[4] = buildNum;
     request('https://circle-artifacts.com/' + splitUrl.join('/') + '?circle-token=' + token).pipe(res);
   });
-
-
-})
+});
 
 app.listen(process.env.PORT || 3000);
