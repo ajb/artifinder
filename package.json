@@ -1,0 +1,16 @@
+{
+  "name": "artifinder",
+  "version": "0.0.1",
+  "description": "Find your most recent build artifacts on CircleCI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ajb <adam@dobt.co>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.9.4",
+    "underscore.string": "^2.3.3",
+    "request": "^2.44.0"
+  }
+}
