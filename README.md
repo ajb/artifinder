@@ -1,7 +1,7 @@
 artifinder
 ====
 
-Find your most recent build artifacts on CircleCI.
+Find your most recent build artifacts on CircleCI. Given a build artifact URL like "https://circle-artifacts.com/gh/dobtco/dvl-flashes/2/artifacts/0/home/ubuntu/dvl-flashes/screenshots/error.png", artifinder will automatically replace the `build_num` with the most recent successful build and then proxy a request for that artifact, ensuring that the artifacts you're linking to are always up-to-date, and that you can keep your API token a secret.
 
 ## Usage
 
