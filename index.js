@@ -26,6 +26,7 @@ app.get('*', function (req, res) {
     }
 
     splitUrl[4] = buildNum;
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate')
     request('https://circle-artifacts.com/' + splitUrl.join('/') + '?circle-token=' + token).pipe(res);
   });
 });
