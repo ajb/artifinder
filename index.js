@@ -5,9 +5,14 @@ var request = require('request')
 
 app.get('*', function (req, res) {
   var fullUrl = req.url
-  var splitUrl = fullUrl.split('/');
+  var splitUrl = fullUrl.replace(/\?.*$/, '').split('/');
   var repo = splitUrl[2] + '_' + splitUrl[3]
   var token = process.env[_s.underscored(repo).toUpperCase() + '_TOKEN'];
+  var pw = process.env[_s.underscored(repo).toUpperCase() + '_PW'];
+
+  if (pw && (req.param('pw') != pw)) {
+    return res.send('wrong pw', 404);
+  }
 
   request({
     url: 'https://circleci.com/api/v1/project/' + splitUrl[2] + '/' + splitUrl[3] + '?circle-token=' + token,
