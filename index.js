@@ -26,8 +26,10 @@ app.get('*', function (req, res) {
 
     if (parsedBody[0].status === 'success') {
       var buildNum = parsedBody[0].build_num;
-    } else {
+    } else if (parsedBody[0].previous_successful_build) {
       var buildNum = parsedBody[0].previous_successful_build.build_num;
+    } else {
+      return res.send('no successful builds', 404);
     }
 
     splitUrl[4] = buildNum;
